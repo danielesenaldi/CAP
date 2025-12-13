@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAP - Future Identity</title>
+    <title>CAP - Digital Identity</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* RESET E BASE */
+        /* ====================================
+           STILE CSS
+           ==================================== */
+        
+        /* RESET & BASE */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -20,96 +24,208 @@
         }
 
         body {
-            font-family: 'Orbitron', sans-serif; /* Font futuristico */
-            background: #00000a; /* Sfondo nero profondo */
-            color: #E0FFFF; /* Colore base testo (ciano pallido) */
+            font-family: 'Poppins', sans-serif;
+            background: #121212; /* Sfondo scuro profondo */
+            color: #E0E0E0; /* Colore base testo (grigio chiaro) */
             min-height: 100vh;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* DEFINIZIONE COLORI NEON */
-        :root {
-            --neon-blue: #00FFFF; /* Ciano brillante */
-            --neon-pink: #FF00FF; /* Magenta brillante */
-            --dark-bg: #00000a;
-        }
-
-        /* CONTENITORE PRINCIPALE */
+        /* CONTENITORE MOBILE */
         .mobile-container {
             max-width: 480px;
             margin: 0 auto;
             padding: 0px;
             position: relative;
         }
-
-        /* EFFETTO NEON GENERALE per TESTI e BORDI */
-        .neon-text {
-            color: var(--neon-blue);
-            text-shadow: 
-                0 0 5px var(--neon-blue),
-                0 0 10px var(--neon-blue),
-                0 0 20px rgba(0, 255, 255, 0.5);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .neon-border {
-            border: 2px solid var(--neon-blue);
-            box-shadow: 
-                0 0 5px var(--neon-blue),
-                0 0 15px var(--neon-blue) inset;
-            transition: all 0.3s ease-in-out;
+        
+        /* COLORI E TEMI */
+        :root {
+            --accent-color: #007BFF; /* Blu istituzionale per accenti */
+            --card-bg: #1E1E1E; /* Sfondo carta leggermente più chiaro del body */
         }
         
-        /* CARD Stile Pannello Olografico */
+        /* SEZIONE HERO (LOGO) */
+        #hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: #0A0A0A; /* Sfondo per la parte alta */
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            background: #333;
+            margin-bottom: 30px;
+            /* Animazione che pulsa leggermente il bordo */
+            animation: pulse-border 2s infinite alternate ease-in-out;
+        }
+        
+        @keyframes pulse-border {
+            from { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
+            to { box-shadow: 0 0 0 15px rgba(0, 123, 255, 0); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .tagline {
+            color: var(--accent-color);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 50px;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            text-decoration: none;
+            color: #999;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: bounce 2s infinite;
+            transition: color 0.3s;
+        }
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* CARD STILE MINIMALISTA */
         .card {
-            background: rgba(0, 0, 50, 0.2); /* Sfondo blu scuro semi-trasparente */
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(0, 255, 255, 0.2); /* Bordo neon leggero */
-            border-radius: 8px;
+            background: var(--card-bg);
+            border-radius: 12px;
             padding: 25px;
-            margin: 0 20px 25px 20px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+            margin: 0 20px 20px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Ombra discreta */
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Leggero sollevamento al passaggio/tocco */
         }
 
         .card h2 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
             margin-bottom: 15px;
             padding-bottom: 10px;
-            border-bottom: 2px solid var(--neon-pink);
-            display: inline-block;
-            text-shadow: 0 0 8px var(--neon-pink);
+            border-bottom: 1px solid #333;
+            color: var(--accent-color);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #B0B0B0;
         }
         
-        /* Aggiungeremo le altre sezioni nel prossimo step */
+        /* PULSANTI DI CONTATTO */
+        .btn-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.1s;
+        }
 
+        .btn-link i {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* COLORI DEI PULSANTI */
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-instagram { background: #E1306C; color: white; }
+        .btn-linkedin { background: #0077B5; color: white; }
+        .btn-email { background: #333; color: white; }
+        
+        .btn-link:active {
+            transform: scale(0.98); /* Effetto click */
+        }
+
+        /* GALLERIA */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .gallery-item {
+            width: 100%;
+            height: 120px;
+            background-color: #333;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.8rem;
+            color: #666;
+        }
     </style>
 </head>
 <body>
 
     <div class="mobile-container">
+        
         <section id="hero-section">
-    <img src="https://via.placeholder.com/200x200/00000A/00FFFF?text=CAP+LOGO" alt="CAP Logo" class="logo neon-border" data-aos="zoom-in" data-aos-duration="1500">
-    
-    <h1 class="neon-text" data-aos="fade-up" data-aos-delay="500">CAP System Identity</h1>
-    <p class="tagline" data-aos="fade-up" data-aos-delay="700">Digital Identity Protocol Initiated</p>
-    
-    <a href="#links" class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
-        <i class="fas fa-arrow-down neon-text"></i>
-        <span class="neon-text"> SCROLL [ACCESS]</span>
-    </a>
-</section>
+            <img src="https://via.placeholder.com/150/007BFF/FFFFFF?text=CAP" alt="CAP Logo" class="logo" data-aos="zoom-in" data-aos-duration="1000">
+            
+            <h1 data-aos="fade-up" data-aos-delay="400">CAP Studio</h1>
+            <p class="tagline" data-aos="fade-up" data-aos-delay="600">Digital Identity & Web Design</p>
+            
+            <a href="#about" class="scroll-indicator" data-aos="fade-up" data-aos-delay="800">
+                <i class="fas fa-chevron-down"></i>
+                Scorri
+            </a>
+        </section>
+
+        <div class="card" id="about" data-aos="fade-right" data-aos-delay="100">
+            <h2><i class="fas fa-user-circle"></i> Chi Siamo</h2>
+            <p>Siamo CAP, lo studio di design che trasforma idee complesse in esperienze digitali eleganti e intuitive. La nostra missione è rendere il tuo brand memorabile.</p>
         </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            once: true, 
-            offset: 80, 
-            duration: 1000, 
-            easing: 'cubic-bezier(.17, .67, .83, .67)', /* Curva di animazione fluida e veloce */
-        });
-    </script>
-</body>
-</html>
+        <div class="card" data-aos="fade-left" data-aos-delay="200">
+            <h2><i class="fas fa-magic"></i> Servizi</h2>
+            <p><i class="fas fa-check-circle" style="color:var(--accent-color); margin-right: 5px;"></i> Branding e Identità Visiva</p>
+            <p><i class="fas fa-check-circle" style="color:var(--accent-color); margin-right: 5px;"></i> Sviluppo Siti Web & Mobile</p>
+            <p><i class="fas fa-check-circle" style="color:var(--accent-color); margin-right: 5px;"></i> Consulenza UX/UI</p>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <h2><i class="fas fa-phone-alt"></i> Contatti</h2>
+            
+            <a href="https://wa
