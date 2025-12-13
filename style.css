@@ -1,5 +1,5 @@
 /* ====================================
-   STILE CSS - BLACK & GOLD LUXURY
+   STILE CSS - BLACK & GOLD LUXURY AGGIORNATO
    ==================================== */
 
 /* RESET & BASE */
@@ -46,23 +46,20 @@ body {
     padding: 40px 20px;
 }
 
+/* MODIFICA LOGO: RIMOZIONE ANIMAZIONE CERCHIO LUMINOSO */
 .logo {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--accent-color);
-    background: #000;
+    /* Rimuoviamo il border-radius per i loghi PNG non circolari */
+    border-radius: 0; 
+    object-fit: contain; /* Assicura che il logo PNG sia contenuto senza tagli */
+    border: none; /* Togliamo il bordo d'oro */
+    background: transparent; /* Sfondo trasparente */
     margin-bottom: 30px;
-    /* Ombra esterna d'oro per effetto bagliore */
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); 
-    animation: pulse-gold 2s infinite alternate ease-in-out;
+    box-shadow: none; /* Rimuove qualsiasi ombra/glow */
+    animation: none; /* Rimuove l'animazione */
 }
-
-@keyframes pulse-gold {
-    from { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
-    to { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
-}
+/* La keyframe @keyframes pulse-gold non è più necessaria e viene omessa */
 
 h1 {
     font-size: 2.5rem;
@@ -77,7 +74,6 @@ h1 {
     text-transform: uppercase;
     font-size: 0.9rem;
     margin-bottom: 50px;
-    /* Ombra del testo d'oro per un look più ricco */
     text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); 
 }
 
@@ -108,12 +104,11 @@ h1 {
    ==================================== */
 .card {
     background: var(--card-bg);
-    border-radius: 5px; /* Bordi più netti per eleganza */
+    border-radius: 5px;
     padding: 25px;
     margin: 0 20px 25px 20px;
-    /* Sottile bordo color oro */
     border-left: 3px solid var(--accent-color);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7); /* Ombra più scura e definita */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
     transition: transform 0.3s ease;
 }
 .card:hover {
@@ -138,7 +133,6 @@ h1 {
 .check-icon {
     color: var(--accent-color);
     margin-right: 5px;
-    /* Ombra sull'icona per dare l'effetto metallico */
     text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); 
 }
 
@@ -170,7 +164,7 @@ h1 {
 /* Stile Pulsante: Sfondo Oro Pieno, Testo Nero */
 .btn-gold-fill { 
     background: var(--accent-color); 
-    color: #111; /* Testo quasi nero */
+    color: #111;
     border: 1px solid var(--accent-color);
 }
 .btn-gold-fill:hover {
