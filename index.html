@@ -6,196 +6,10 @@
     <title>CAP - Digital Identity</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        /* ====================================
-           STILE CSS
-           ==================================== */
-        
-        /* RESET & BASE */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #121212; /* Sfondo scuro profondo */
-            color: #E0E0E0; /* Colore base testo (grigio chiaro) */
-            min-height: 100vh;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* CONTENITORE MOBILE */
-        .mobile-container {
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 0px;
-            position: relative;
-        }
-        
-        /* COLORI E TEMI */
-        :root {
-            --accent-color: #007BFF; /* Blu istituzionale per accenti */
-            --card-bg: #1E1E1E; /* Sfondo carta leggermente più chiaro del body */
-        }
-        
-        /* SEZIONE HERO (LOGO) */
-        #hero-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: #0A0A0A; /* Sfondo per la parte alta */
-        }
-
-        .logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent-color);
-            background: #333;
-            margin-bottom: 30px;
-            /* Animazione che pulsa leggermente il bordo */
-            animation: pulse-border 2s infinite alternate ease-in-out;
-        }
-        
-        @keyframes pulse-border {
-            from { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
-            to { box-shadow: 0 0 0 15px rgba(0, 123, 255, 0); }
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: white;
-        }
-
-        .tagline {
-            color: var(--accent-color);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-bottom: 50px;
-        }
-        
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            text-decoration: none;
-            color: #999;
-            font-size: 0.8rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: bounce 2s infinite;
-            transition: color 0.3s;
-        }
-        .scroll-indicator i {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            color: var(--accent-color);
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        /* CARD STILE MINIMALISTA */
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 0 20px 20px 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Ombra discreta */
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px); /* Leggero sollevamento al passaggio/tocco */
-        }
-
-        .card h2 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #333;
-            color: var(--accent-color);
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #B0B0B0;
-        }
-        
-        /* PULSANTI DI CONTATTO */
-        .btn-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            transition: background 0.2s, transform 0.1s;
-        }
-
-        .btn-link i {
-            font-size: 1.2rem;
-            margin-right: 15px;
-            width: 25px;
-            text-align: center;
-        }
-
-        /* COLORI DEI PULSANTI */
-        .btn-whatsapp { background: #25D366; color: white; }
-        .btn-instagram { background: #E1306C; color: white; }
-        .btn-linkedin { background: #0077B5; color: white; }
-        .btn-email { background: #333; color: white; }
-        
-        .btn-link:active {
-            transform: scale(0.98); /* Effetto click */
-        }
-
-        /* GALLERIA */
-        .gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .gallery-item {
-            width: 100%;
-            height: 120px;
-            background-color: #333;
-            border-radius: 8px;
-            background-size: cover;
-            background-position: center;
-            transition: opacity 0.3s;
-        }
-        .gallery-item:hover {
-            opacity: 0.8;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            font-size: 0.8rem;
-            color: #666;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
@@ -220,12 +34,51 @@
 
         <div class="card" data-aos="fade-left" data-aos-delay="200">
             <h2><i class="fas fa-magic"></i> Servizi</h2>
-            <p><i class="fas fa-check-circle" style="color:var(--accent-color); margin-right: 5px;"></i> Branding e Identità Visiva</p>
-            <p><i class="fas fa-check-circle" style="color:var(--accent-color); margin-right: 5px;"></i> Sviluppo Siti Web & Mobile</p>
-            <p><i class="fas fa-check-circle" style="color:var(--accent-color); margin-right: 5px;"></i> Consulenza UX/UI</p>
+            <p><i class="fas fa-check-circle check-icon"></i> Branding e Identità Visiva</p>
+            <p><i class="fas fa-check-circle check-icon"></i> Sviluppo Siti Web & Mobile</p>
+            <p><i class="fas fa-check-circle check-icon"></i> Consulenza UX/UI</p>
         </div>
 
         <div class="card" data-aos="fade-up" data-aos-delay="300">
             <h2><i class="fas fa-phone-alt"></i> Contatti</h2>
             
-            <a href="https://wa
+            <a href="https://wa.me/numeroditelefono" class="btn-link btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Scrivici su WhatsApp
+            </a>
+            
+            <a href="https://instagram.com/iltuoprofilo" class="btn-link btn-instagram" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram Ufficiale
+            </a>
+            
+            <a href="mailto:info@cap.com" class="btn-link btn-email">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+        
+        <div class="card" data-aos="flip-up" data-aos-delay="400">
+             <h2><i class="fas fa-camera"></i> Portfolio</h2>
+             <div class="gallery">
+                 <div class="gallery-item" style="background-image: url('https://via.placeholder.com/120/4B0082/FFFFFF?text=Project1');"></div>
+                 <div class="gallery-item" style="background-image: url('https://via.placeholder.com/120/8A2BE2/FFFFFF?text=Project2');"></div>
+                 <div class="gallery-item" style="background-image: url('https://via.placeholder.com/120/FF6347/FFFFFF?text=Project3');"></div>
+                 <div class="gallery-item" style="background-image: url('https://via.placeholder.com/120/00CED1/FFFFFF?text=Project4');"></div>
+             </div>
+        </div>
+
+        <footer>
+            <p>CAP Studio © 2024</p>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, 
+            offset: 100, 
+            duration: 1000, 
+            easing: 'ease-out-quart',
+        });
+    </script>
+</body>
+</html>
