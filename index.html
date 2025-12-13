@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Il Mio Digital Card</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* RESET E BASE */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0c29;  /* Sfondo scuro elegante */
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden; /* Evita lo scroll orizzontale */
+        }
+
+        /* CONTENITORE PRINCIPALE (Simula larghezza smartphone anche su PC) */
+        .mobile-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* HEADER / HERO SECTION */
+        header {
+            text-align: center;
+            padding: 50px 0;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            background: -webkit-linear-gradient(#fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #a78bfa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* CARD STILE VETRO (Glassmorphism) */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px); /* Effetto sfocato dietro */
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            color: #e2e8f0;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        /* PULSANTI SOCIAL/LINK */
+        .btn-link {
+            display: flex;
+            align-items: center;
+            background: white;
+            color: #0f0c29;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-link i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        /* Colori specifici per i brand */
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+        .btn-linkedin { background: #0077b5; color: white; }
+        .btn-email { background: #333; color: white; }
+
+        .btn-link:active {
+            transform: scale(0.95); /* Effetto click */
+        }
+
+        /* ANIMAZIONE GALLERIA */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .gallery-item {
+            width: 100%;
+            height: 100px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            /* Inserisci qui background-image: url(...) per le tue foto */
+        }
+
+        /* ANIMAZIONE CUSTOM (FLUTTUANTE) */
+        @keyframes float {
+            0% { transform: translatey(0px); }
+            50% { transform: translatey(-15px); }
+            100% { transform: translatey(0px); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        
+        <header data-aos="zoom-in" data-aos-duration="1000">
+            <img src="https://via.placeholder.com/150" alt="Foto Profilo" class="avatar">
+            <h1>Mario Rossi</h1>
+            <p class="subtitle">Creative Designer & Developer</p>
+        </header>
+
+        <div class="card" data-aos="fade-right" data-aos-delay="100">
+            <h2><i class="fas fa-user-astronaut"></i> Chi Sono</h2>
+            <p>Creo esperienze digitali uniche. Specializzato in design minimalista e interfacce mobile-first. Scorri per scoprire il mio mondo.</p>
+        </div>
+
+        <div class="card" data-aos="fade-left" data-aos-delay="200">
+            <h2><i class="fas fa-layer-group"></i> Cosa Faccio</h2>
+            <p>✨ Web Design</p>
+            <p>🚀 Social Media Strategy</p>
+            <p>🎥 Video Editing</p>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <h2><i class="fas fa-link"></i> Contattami</h2>
+            
+            <a href="#" class="btn-link btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Scrivimi su WhatsApp
+            </a>
+            
+            <a href="#" class="btn-link btn-instagram">
+                <i class="fab fa-instagram"></i> Seguimi su Instagram
+            </a>
+            
+            <a href="#" class="btn-link btn-linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+
+            <a href="mailto:email@esempio.com" class="btn-link btn-email">
+                <i class="fas fa-envelope"></i> Inviami una Email
+            </a>
+        </div>
+
+        <div class="card" data-aos="flip-up" data-aos-delay="400">
+             <h2><i class="fas fa-image"></i> I miei Lavori</h2>
+             <div class="gallery">
+                 <div class="gallery-item"></div>
+                 <div class="gallery-item"></div>
+                 <div class="gallery-item"></div>
+                 <div class="gallery-item"></div>
+             </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Mario Rossi Design</p>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: false, /* Se true, l'animazione si vede solo la prima volta. False = ogni volta che scorri */
+            offset: 50,  /* Inizia l'animazione un po' prima */
+            duration: 800, /* Durata in millisecondi */
+            easing: 'ease-out-cubic', /* Tipo di movimento fluido */
+        });
+    </script>
+</body>
+</html>
