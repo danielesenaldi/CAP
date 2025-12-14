@@ -211,3 +211,78 @@ footer {
     font-size: 0.8rem;
     color: #444;
 }
+
+/* ====================================
+   EFFETTO GLITCH MATRIX
+   ==================================== */
+
+:root {
+    /* Aggiungiamo un colore Neon Verde per il glitch */
+    --neon-green: #39FF14;
+    --accent-color: #FFD700; /* Oro Puro (Gold) */
+    /* ...altre variabili */
+}
+
+.glitch-text {
+    /* Il testo inizia con il suo colore normale (ereditato dal tagline) */
+    color: var(--accent-color); 
+    /* Applica l'animazione glitch in modo casuale e infinito */
+    animation: 
+        glitch-animation 5s infinite linear, /* L'animazione Glitch vera e propria */
+        glitch-color 2.5s infinite linear; /* Alterna colori neon */
+}
+
+
+/* Definisce i due strati di glitch (necessari per l'effetto 3D di errore) */
+.glitch-text::before,
+.glitch-text::after {
+    content: "Matrix"; /* Deve replicare la parola */
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green); /* Effetto neon verde */
+}
+
+.glitch-text::before {
+    /* Primo strato del glitch: spostamento verso l'alto */
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-green);
+    clip-path: inset(0 0 90% 0); /* Mostra solo una porzione di testo */
+    animation: glitch-layer-1 5s infinite alternate-reverse;
+}
+
+.glitch-text::after {
+    /* Secondo strato del glitch: spostamento verso il basso */
+    left: -2px;
+    text-shadow: 2px 0 var(--neon-green);
+    clip-path: inset(90% 0 0 0);
+    animation: glitch-layer-2 5s infinite alternate-reverse;
+}
+
+
+/* KEYFRAMES (Il cuore dell'animazione) */
+
+@keyframes glitch-layer-1 {
+    0% { clip-path: inset(80% 0 0 0); transform: translateX(-5px); }
+    10% { clip-path: inset(50% 0 30% 0); transform: translateX(5px); }
+    20% { clip-path: inset(70% 0 10% 0); transform: translateX(-5px); }
+    30% { clip-path: inset(30% 0 50% 0); transform: translateX(0); }
+    40% { clip-path: inset(10% 0 70% 0); transform: translateX(5px); }
+    100% { clip-path: inset(0 0 0 0); transform: translateX(0); }
+}
+
+@keyframes glitch-layer-2 {
+    0% { clip-path: inset(0 0 80% 0); transform: translateX(5px); }
+    15% { clip-path: inset(70% 0 10% 0); transform: translateX(-5px); }
+    35% { clip-path: inset(40% 0 40% 0); transform: translateX(5px); }
+    55% { clip-path: inset(10% 0 70% 0); transform: translateX(-5px); }
+    100% { clip-path: inset(0 0 0 0); transform: translateX(0); }
+}
+
+/* Questa animazione controlla i momenti in cui il glitch è VERO o SPENTO */
+@keyframes glitch-color {
+    0%, 20%, 40%, 60%, 80%, 100% { color: var(--accent-color); text-shadow: none; }
+    10%, 30%, 50%, 70%, 90% { color: var(--neon-green); text-shadow: 0 0 8px var(--neon-green); }
+}
