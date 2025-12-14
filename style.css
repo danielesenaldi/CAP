@@ -230,6 +230,7 @@ footer {
     animation: 
         glitch-animation 5s infinite linear, /* L'animazione Glitch vera e propria */
         glitch-color 2.5s infinite linear; /* Alterna colori neon */
+   position: relative;
 }
 
 
