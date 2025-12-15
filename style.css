@@ -219,7 +219,7 @@ footer {
     /* Il colore iniziale è il Verde Neon */
     color: var(--neon-green); 
     /* Applica l'animazione di pulsazione */
-    animation: neon-pulse 0.5s infinite alternate steps(0.5); 
+    animation: neon-pulse 1s infinite alternate steps(1); 
     text-shadow: 0 0 5px var(--neon-green); /* Effetto neon iniziale */
 }
 
