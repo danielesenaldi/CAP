@@ -217,8 +217,8 @@ footer {
 
 .pulse-neon {
     color: var(--neon-green); 
-    /* Durata a 2s: 1s ON e 1s OFF. Rimosso 'alternate' */
-    animation: neon-pulse 2s infinite steps(1); 
+    /* Durata a 0.5s: ON e OFF si completano in mezzo secondo (0.25s ON, 0.25s OFF) */
+    animation: neon-pulse 0.5s infinite steps(1); 
     text-shadow: 0 0 5px var(--neon-green); 
 }
 
@@ -228,7 +228,7 @@ footer {
         color: var(--neon-green); 
         text-shadow: 
             0 0 5px var(--neon-green),
-            0 0 15px var(--neon-green),
+            0 0 15px var(--neon-green), 
             0 0 20px var(--neon-green);
     }
     /* 51% a 100%: SPENTO (Colore Oro del testo circostante) */
