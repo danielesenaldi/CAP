@@ -217,8 +217,8 @@ footer {
 
 .pulse-neon {
     color: var(--neon-green); 
-    /* Durata a 0.5s: ON e OFF si completano in mezzo secondo (0.25s ON, 0.25s OFF) */
-    animation: neon-pulse 0.5s infinite steps(1); 
+    /* Durata a 1.5s: l'intermittenza è più lenta (0.75s ON, 0.75s OFF) */
+    animation: neon-pulse 1.5s infinite steps(1); 
     text-shadow: 0 0 5px var(--neon-green); 
 }
 
