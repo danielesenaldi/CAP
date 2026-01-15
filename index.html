@@ -73,10 +73,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            once: true, 
-            offset: 100, 
-            duration: 1000, 
-            easing: 'ease-out-quart',
+            once: true,      // L'animazione avviene solo una volta
+            offset: 50,      // Si attiva prima (meno calcoli durante lo scroll)
+            duration: 600,   // Più veloce = più fluido
+            easing: 'ease-out',
+            disableMutationObserver: true // Velocizza le prestazioni
         });
     </script>
 </body>
