@@ -1,29 +1,37 @@
 /* ====================================
-   STILE CSS - BLACK & GOLD LUXURY AGGIORNATO
+   STILE CSS - BLACK & GOLD LUXURY (FLUIDO)
    ==================================== */
 
-/* RESET & BASE */
+/* RESET & BASE - Ottimizzato per Mobile */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* Evita fastidiosi riflessi blu al tocco su mobile */
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    background: #0A0A0A;
+    /* Migliora la fluidità dello scorrimento su iPhone */
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #0A0A0A; /* Nero profondo per un look lussuoso */
-    color: #F0F0F0; /* Testo base bianco sporco */
+    color: #F0F0F0;
     min-height: 100vh;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    /* Rimosso scroll-behavior: smooth perché spesso causa scatti con AOS su mobile */
+    line-height: 1.6;
 }
 
-/* VARIABILI DI TEMA (CORRETTE) */
+/* VARIABILI DI TEMA */
 :root {
-    --accent-color: #FFD700; /* Oro Puro (Gold) */
-    --card-bg: #1A1A1A; /* Nero leggermente più chiaro per le schede */
+    --accent-color: #FFD700;
+    --card-bg: #1A1A1A;
     --text-color: #E0E0E0;
-    /* VARIABILE FONDAMENTALE AGGIUNTA */
     --neon-green: #39FF14; 
 }
 
@@ -31,12 +39,11 @@ body {
 .mobile-container {
     max-width: 480px;
     margin: 0 auto;
-    padding: 0px;
     position: relative;
 }
 
 /* ====================================
-   SEZIONE HERO (LOGO)
+   SEZIONE HERO (LOGO & TITOLO)
    ==================================== */
 #hero-section {
     min-height: 100vh;
@@ -46,25 +53,23 @@ body {
     align-items: center;
     text-align: center;
     padding: 40px 20px;
+    /* Forza l'accelerazione hardware per evitare scatti */
+    transform: translateZ(0);
 }
 
-/* MODIFICA LOGO: RIMOZIONE ANIMAZIONE CERCHIO LUMINOSO */
 .logo {
     width: 150px;
     height: 150px;
-    border-radius: 0; 
     object-fit: contain; 
-    border: none;
-    background: transparent;
     margin-bottom: 30px;
-    box-shadow: none;
-    animation: none;
+    /* Ottimizzazione rendering */
+    will-change: transform;
 }
 
 h1 {
     font-size: 2.5rem;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: white;
 }
 
@@ -72,35 +77,13 @@ h1 {
     color: var(--accent-color);
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 50px;
+    font-size: 0.85rem;
+    margin-bottom: 0; 
     text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); 
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    text-decoration: none;
-    color: var(--accent-color);
-    font-size: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: bounce 2s infinite;
-}
-.scroll-indicator i {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: var(--accent-color);
-}
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
 /* ====================================
-   CARD & CONTENUTO
+   CARD & CONTENUTO - OTTIMIZZATE
    ==================================== */
 .card {
     background: var(--card-bg);
@@ -109,11 +92,10 @@ h1 {
     margin: 0 20px 25px 20px;
     border-left: 3px solid var(--accent-color);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
-    transition: transform 0.3s ease;
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+    /* Ottimizzazione per evitare scatti durante le animazioni AOS */
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform, opacity;
 }
 
 .card h2 {
@@ -127,13 +109,13 @@ h1 {
 
 .card p {
     font-size: 0.95rem;
-    line-height: 1.6;
     color: var(--text-color);
+    margin-bottom: 8px;
 }
+
 .check-icon {
     color: var(--accent-color);
-    margin-right: 5px;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); 
+    margin-right: 8px;
 }
 
 /* ====================================
@@ -145,33 +127,15 @@ h1 {
     text-decoration: none;
     padding: 15px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-weight: 600;
-    transition: background 0.2s, color 0.2s, transform 0.1s;
-}
-
-/* Stile Pulsante: Bordo Oro, Interno Nero */
-.btn-gold-outline { 
-    background: transparent; 
-    color: var(--accent-color); 
+    color: var(--accent-color);
     border: 1px solid var(--accent-color);
-}
-
-.btn-gold-outline:hover {
-    background: rgba(255, 215, 0, 0.1);
-}
-
-/* Stile Pulsante: Sfondo Oro Pieno, Testo Nero */
-.btn-gold-fill { 
-    background: var(--accent-color); 
-    color: #111;
-    border: 1px solid var(--accent-color);
-}
-.btn-gold-fill:hover {
-    background: #EEDD44;
+    transition: background 0.2s;
 }
 
 .btn-link:active {
+    background: rgba(255, 215, 0, 0.1);
     transform: scale(0.98);
 }
 
@@ -198,40 +162,29 @@ h1 {
     background-size: cover;
     background-position: center;
     border: 1px solid var(--accent-color);
-    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
-    transition: transform 0.3s;
-}
-.gallery-item:hover {
-    transform: scale(1.05);
 }
 
 footer {
     text-align: center;
-    padding: 40px 0;
+    padding: 60px 0 40px;
     font-size: 0.8rem;
     color: #444;
 }
-/* ====================================
-   EFFETTO PULSAZIONE NEON VERDE
-   ==================================== */
 
+/* ====================================
+   EFFETTO MATRIX INTERMITTENTE (VELOCITÀ MEDIA)
+   ==================================== */
 .pulse-neon {
     color: var(--neon-green); 
-    /* Durata a 1.5s: l'intermittenza è più lenta (0.75s ON, 0.75s OFF) */
     animation: neon-pulse 1.5s infinite steps(1); 
     text-shadow: 0 0 5px var(--neon-green); 
 }
 
 @keyframes neon-pulse {
-    /* 0% a 50%: ACCESO (Verde Brillante) */
     0%, 50% {
         color: var(--neon-green); 
-        text-shadow: 
-            0 0 5px var(--neon-green),
-            0 0 15px var(--neon-green), 
-            0 0 20px var(--neon-green);
+        text-shadow: 0 0 5px var(--neon-green), 0 0 15px var(--neon-green);
     }
-    /* 51% a 100%: SPENTO (Colore Oro del testo circostante) */
     51%, 100% {
         color: var(--accent-color); 
         text-shadow: none; 
